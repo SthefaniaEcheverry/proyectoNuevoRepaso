@@ -1,7 +1,9 @@
 import express from 'express';
 import {fileURLToPath} from 'url';
 import path from 'path';
+import usersRoutes from './routes/usersRoutes.js'; 
 const app = express();
+
 
 // Habilita la lectura de datos del ejs
 // Actualizando el dirname para trabajar con modulos
@@ -14,6 +16,9 @@ app.use(express.static('public'));
 // Habilitar vista con módulos y ejs
 app.set('view engine', 'ejs');
 app.set('views', 'src/views');
+
+//
+app.use('/', usersRoutes);
 
 // Configurar el puerto
 const port = process.env.PORT || 3000;
